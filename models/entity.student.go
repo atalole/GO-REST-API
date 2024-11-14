@@ -8,7 +8,7 @@ import (
 )
 
 type EntityStudent struct {
-	ID        string `gorm:"primaryKey;"`
+	ID        string `gorm:"primaryKey;unique;not null"`
 	Name      string `gorm:"type:varchar(255);not null"`
 	Npm       int    `gorm:"type:bigint;unique;not null"`
 	Fak       string `gorm:"type:varchar(255);not null"`

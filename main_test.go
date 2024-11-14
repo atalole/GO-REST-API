@@ -2,13 +2,14 @@ package main
 
 import (
 	"encoding/json"
+	util "gin/utils"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/assert/v2"
-	util "github.com/restuwahyu13/gin-rest-api/utils"
+
 	"github.com/restuwahyu13/go-supertest/supertest"
 	. "github.com/smartystreets/goconvey/convey"
 	"syreclabs.com/go/faker"

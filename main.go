@@ -1,15 +1,15 @@
 package main
 
 import (
+	config "gin/configs"
+	route "gin/routes"
+	util "gin/utils"
 	"log"
 
 	helmet "github.com/danielkov/gin-helmet"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
-	config "github.com/restuwahyu13/gin-rest-api/configs"
-	route "github.com/restuwahyu13/gin-rest-api/routes"
-	util "github.com/restuwahyu13/gin-rest-api/utils"
 )
 
 func main() {
@@ -20,6 +20,7 @@ func main() {
 	/**
 	@description Run Server
 	*/
+
 	log.Fatal(router.Run(":" + util.GodotEnv("GO_PORT")))
 }
 
@@ -57,7 +58,6 @@ func SetupRouter() *gin.Engine {
 	/**
 	@description Init All Route
 	*/
-	route.InitAuthRoutes(db, router)
 	route.InitStudentRoutes(db, router)
 
 	return router

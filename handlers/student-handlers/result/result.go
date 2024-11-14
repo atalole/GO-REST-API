@@ -3,9 +3,11 @@ package handlerResultStudent
 import (
 	"net/http"
 
+	resultStudent "gin/controllers/student-controllers/result"
+	util "gin/utils"
+
 	"github.com/gin-gonic/gin"
-	resultStudent "github.com/restuwahyu13/gin-rest-api/controllers/student-controllers/result"
-	util "github.com/restuwahyu13/gin-rest-api/utils"
+
 	gpc "github.com/restuwahyu13/go-playground-converter"
 )
 

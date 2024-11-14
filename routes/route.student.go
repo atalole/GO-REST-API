@@ -1,17 +1,19 @@
 package route
 
 import (
+	createStudent "gin/controllers/student-controllers/create"
+	deleteStudent "gin/controllers/student-controllers/delete"
+	resultStudent "gin/controllers/student-controllers/result"
+	resultsStudent "gin/controllers/student-controllers/results"
+	updateStudent "gin/controllers/student-controllers/update"
+	handlerCreateStudent "gin/handlers/student-handlers/create"
+	handlerDeleteStudent "gin/handlers/student-handlers/delete"
+	handlerResultStudent "gin/handlers/student-handlers/result"
+	handlerResultsStudent "gin/handlers/student-handlers/results"
+	handlerUpdateStudent "gin/handlers/student-handlers/update"
+
 	"github.com/gin-gonic/gin"
-	createStudent "github.com/restuwahyu13/gin-rest-api/controllers/student-controllers/create"
-	deleteStudent "github.com/restuwahyu13/gin-rest-api/controllers/student-controllers/delete"
-	resultStudent "github.com/restuwahyu13/gin-rest-api/controllers/student-controllers/result"
-	resultsStudent "github.com/restuwahyu13/gin-rest-api/controllers/student-controllers/results"
-	updateStudent "github.com/restuwahyu13/gin-rest-api/controllers/student-controllers/update"
-	handlerCreateStudent "github.com/restuwahyu13/gin-rest-api/handlers/student-handlers/create"
-	handlerDeleteStudent "github.com/restuwahyu13/gin-rest-api/handlers/student-handlers/delete"
-	handlerResultStudent "github.com/restuwahyu13/gin-rest-api/handlers/student-handlers/result"
-	handlerResultsStudent "github.com/restuwahyu13/gin-rest-api/handlers/student-handlers/results"
-	handlerUpdateStudent "github.com/restuwahyu13/gin-rest-api/handlers/student-handlers/update"
+
 	"gorm.io/gorm"
 )
 
@@ -20,6 +22,7 @@ func InitStudentRoutes(db *gorm.DB, route *gin.Engine) {
 	/**
 	@description All Handler Student
 	*/
+
 	createStudentRepository := createStudent.NewRepositoryCreate(db)
 	createStudentService := createStudent.NewServiceCreate(createStudentRepository)
 	createStudentHandler := handlerCreateStudent.NewHandlerCreateStudent(createStudentService)

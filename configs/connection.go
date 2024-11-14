@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	model "github.com/restuwahyu13/gin-rest-api/models"
-	util "github.com/restuwahyu13/gin-rest-api/utils"
+	model "gin/models"
+
+	util "gin/utils"
+
 	"github.com/sirupsen/logrus"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -32,8 +34,8 @@ func Connection() *gorm.DB {
 	}
 
 	err = db.AutoMigrate(
-		&model.EntityUsers{},
 		&model.EntityStudent{},
+		// &model.Test{},
 	)
 
 	fmt.Print("err", err)
