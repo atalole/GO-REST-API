@@ -74,4 +74,4 @@ Example golang using gin framework everything you need, i create this tutorial s
 
 ### Author
 
-- [Restu Wahyu Saputra](https://github.com/restuwahyu13)
+- [Amit Talole](https://github.com/atalole)
