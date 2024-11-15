@@ -76,7 +76,7 @@ Example golang using gin framework everything you need, i create this tutorial s
 
  - Migration Up
 
- ```
+ ```sh
   make migrate_up
   ```
 
