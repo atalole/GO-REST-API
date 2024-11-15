@@ -1,4 +1,4 @@
-module github.com/restuwahyu13/gin-rest-api
+module gin
 
 go 1.21.0
 
