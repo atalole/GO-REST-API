@@ -58,7 +58,7 @@ func SetupRouter() *gin.Engine {
 	/**
 	@description Init All Route
 	*/
-	route.InitStudentRoutes(db, router)
+	route.InitTestRoutes(db, router)
 
 	return router
 }

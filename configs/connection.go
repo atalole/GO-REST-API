@@ -34,8 +34,8 @@ func Connection() *gorm.DB {
 	}
 
 	err = db.AutoMigrate(
-		&model.EntityStudent{},
-		// &model.Test{},
+		// &model.EntityStudent{},
+		&model.Tests{},
 	)
 
 	fmt.Print("err", err)
