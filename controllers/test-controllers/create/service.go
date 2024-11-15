@@ -24,6 +24,7 @@ func (s *service) CreateTestService(input *InputCreateTest) (*model.Tests, strin
 		Name: input.Name,
 	}
 
+	fmt.Println("test", test)
 	resultCreateTest, errCreateTest := s.repository.CreateTestRepository(&test)
 	return resultCreateTest, errCreateTest
 }
