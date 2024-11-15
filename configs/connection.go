@@ -5,7 +5,6 @@ import (
 	"os"
 
 	model "gin/models"
-
 	util "gin/utils"
 
 	"github.com/sirupsen/logrus"
@@ -34,7 +33,6 @@ func Connection() *gorm.DB {
 	}
 
 	err = db.AutoMigrate(
-		// &model.EntityStudent{},
 		&model.Tests{},
 	)
 
