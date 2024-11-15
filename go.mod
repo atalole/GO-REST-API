@@ -206,6 +206,8 @@ require (
 	github.com/mitchellh/gox v0.4.0 // indirect
 	github.com/mitchellh/iochan v1.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
+	github.com/mitranim/gg v0.1.19 // indirect
+	github.com/mitranim/gow v0.0.0-20231026105220-af11a6e1e9eb // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/morikuni/aec v1.0.0 // indirect
@@ -248,6 +250,7 @@ require (
 	github.com/prometheus/tsdb v0.7.1 // indirect
 	github.com/rakyll/statik v0.1.7 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a // indirect
+	github.com/rjeczalik/notify v0.9.3 // indirect
 	github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af // indirect
 	github.com/rogpeppe/go-internal v1.8.0 // indirect
 	github.com/rs/xid v1.2.1 // indirect

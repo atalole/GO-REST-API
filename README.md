@@ -72,6 +72,27 @@ Example golang using gin framework everything you need, i create this tutorial s
   $ docker-compose down | make dcd
   ```
 
+* ### Migration
+ - Migration Up
+
+ ```sh
+  make migrate_up
+  ```
+
+- Migration down
+
+```sh
+  make migrate_down
+  ```
+
+* ### Local Run
+
+- Start and restart on change
+
+```sh
+  gow run .
+  ```
+
 ### Author
 
 - [Amit Talole](https://github.com/atalole)
