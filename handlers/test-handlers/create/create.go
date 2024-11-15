@@ -43,15 +43,15 @@ func (h *handler) CreateTestHandler(ctx *gin.Context) {
 	fmt.Println("errCreateTest", errCreateTest)
 	switch errCreateTest {
 
-	case "CREATE_TESTS_CONFLICT_409":
-		util.APIResponse(ctx, "Name TEST already exist", http.StatusConflict, http.MethodPost, nil)
+	case http.StatusConflict:
+		util.APIResponse(ctx, util.MsgTestConflict, http.StatusConflict, http.MethodPost, nil)
 		return
 
-	case "CREATE_TESTS_FAILED_403":
-		util.APIResponse(ctx, "Create new Test failed", http.StatusForbidden, http.MethodPost, nil)
+	case http.StatusForbidden:
+		util.APIResponse(ctx, util.MsgTestCreateFail, http.StatusForbidden, http.MethodPost, nil)
 		return
 
 	default:
-		util.APIResponse(ctx, "Create new Test successfully", http.StatusCreated, http.MethodPost, nil)
+		util.APIResponse(ctx, util.MsgTestCreateSuccess, http.StatusCreated, http.MethodPost, nil)
 	}
 }

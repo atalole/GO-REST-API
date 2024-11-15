@@ -6,7 +6,7 @@ import (
 )
 
 type Service interface {
-	CreateTestService(input *InputCreateTest) (*model.Tests, string)
+	CreateTestService(input *InputCreateTest) (*model.Tests, int)
 }
 
 type service struct {
@@ -17,7 +17,7 @@ func NewServiceCreate(repository Repository) *service {
 	return &service{repository: repository}
 }
 
-func (s *service) CreateTestService(input *InputCreateTest) (*model.Tests, string) {
+func (s *service) CreateTestService(input *InputCreateTest) (*model.Tests, int) {
 	fmt.Println("call3")
 
 	test := model.Tests{
@@ -26,5 +26,7 @@ func (s *service) CreateTestService(input *InputCreateTest) (*model.Tests, strin
 
 	fmt.Println("test", test)
 	resultCreateTest, errCreateTest := s.repository.CreateTestRepository(&test)
+
+	fmt.Println("resultCreateTesterrCreateTest", errCreateTest)
 	return resultCreateTest, errCreateTest
 }

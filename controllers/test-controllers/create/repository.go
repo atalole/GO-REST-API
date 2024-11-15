@@ -3,13 +3,14 @@ package test
 import (
 	"fmt"
 	model "gin/models"
+	"net/http"
 
 	"gorm.io/gorm"
 )
 
 // interface
 type Repository interface {
-	CreateTestRepository(input *model.Tests) (*model.Tests, string)
+	CreateTestRepository(input *model.Tests) (*model.Tests, int)
 }
 
 // struct
@@ -33,19 +34,21 @@ func NewRepositoryCreate(db *gorm.DB) *repository {
 // * (Dereference): Access the value stored at a pointer.
 // & (Address-of): Get the memory address of a variable.
 
-func (r *repository) CreateTestRepository(input *model.Tests) (*model.Tests, string) {
+func (r *repository) CreateTestRepository(input *model.Tests) (*model.Tests, int) {
 	fmt.Println("call4")
 
 	var tests model.Tests
 	db := r.db.Model(&tests)
-	errorCode := make(chan string, 1)
+	// creates a buffered channel in Go that can hold integers, with a buffer size of 1.
+	errorCode := make(chan int, 1)
 
 	checkTestsExist := db.Debug().Select("*").Where("Name = ?", input.Name).Find(&tests)
 
 	fmt.Println("checkTestsExist", checkTestsExist.RowsAffected)
 
+	//  <- receive operation
 	if checkTestsExist.RowsAffected > 0 {
-		errorCode <- "CREATE_TESTS_CONFLICT_409"
+		errorCode <- http.StatusConflict
 		return &tests, <-errorCode
 	}
 
@@ -55,10 +58,10 @@ func (r *repository) CreateTestRepository(input *model.Tests) (*model.Tests, str
 	db.Commit()
 
 	if addNewTest.Error != nil {
-		errorCode <- "CREATE_TEST_FAILED_403"
+		errorCode <- http.StatusForbidden
 		return &tests, <-errorCode
 	} else {
-		errorCode <- "nil"
+		errorCode <- http.StatusOK
 	}
 	return &tests, <-errorCode
 }
